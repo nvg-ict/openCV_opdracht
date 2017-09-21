@@ -1,0 +1,4 @@
+#[vorm][whitespace][kleur]
+circel wit
+vierkant groen
+fouteSYNTAX
