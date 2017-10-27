@@ -8,10 +8,11 @@
 #include "VideoCapture.hpp"
 
 #include <iostream>
+#include <fstream>
 
 /*static*/VideoCapture& VideoCapture::getInstance()
 {
-	static VideoCapture c(1);
+	static VideoCapture c(0);
 	return c;
 }
 
@@ -29,16 +30,22 @@ void VideoCapture::capture()
 		throw std::runtime_error(
 				"Oops, it wasn't possible to open the video stream");
 	}
+
 	while (key != 27)
 	{
 		//cv::Mat frame, processedFrame;
 
+		 //freopen("/dev/null","W",stderr);
+
 		cap >> frame;
+
 
 
 		//Convert BGR image to HSV
 
 		cv::imshow("Webcam", frame);
+
+
 
 		//If esc key has not been pressed you can check for the key and wait the waitkey time. Function close will also
 		//change the key if needed to close the program
